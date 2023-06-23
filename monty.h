@@ -18,9 +18,9 @@
  */
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
 
 /**
@@ -33,16 +33,38 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/**
+ * struct data - all data in program
+ * @push_value: value to push
+ * @line_num: line number of opcode
+ * @opcode: the opcode
+ * @top: the top of stack
+ *
+ */
 typedef struct data
 {
-        int push_value;
-        char *opcode;
-        stack_t *top;
+	int push_value;
+	unsigned int line_num;
+	char *opcode;
+	stack_t *top;
 } data;
 data datax;
+
+/*main.c*/
+void exec(void);
+int main(int argc, char **argv);
+
+/*opcodes.c*/
+void _push(stack_t **top, unsigned int line_number);
+void _pall(stack_t **top, unsigned int line_number);
+/*helpers.c*/
+FILE *openfile(char *filename);
+size_t num_len(int num);
+void verify_number(char *token);
+void free_stack(stack_t *top);
 
 #endif
