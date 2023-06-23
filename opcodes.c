@@ -60,8 +60,13 @@ void _pall(stack_t **top, unsigned int line_number)
  */
 void _pint(stack_t **top, unsigned int line_number)
 {
-	(void)top;
 	(void)line_number;
-	fprintf(stdout, "%d\n", datax.top->n);
+	if (!*top)
+	{
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
+		free_stack(datax.top);
+		exit(EXIT_FAILURE);
+	}
+	fprintf(stdout, "%d\n", (*top)->n);
 	fflush(stdout);
 }
