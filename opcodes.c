@@ -60,7 +60,6 @@ void _pall(stack_t **top, unsigned int line_number)
  */
 void _pint(stack_t **top, unsigned int line_number)
 {
-	(void)line_number;
 	if (!*top)
 	{
 		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
@@ -69,4 +68,32 @@ void _pint(stack_t **top, unsigned int line_number)
 	}
 	fprintf(stdout, "%d\n", (*top)->n);
 	fflush(stdout);
+}
+
+/**
+ * _pop - removes the top element of the stack
+ * @top: head of double list
+ * @line_number: line number of opcode
+ * Return: none
+ */
+void _pop(stack_t **top, unsigned int line_number)
+{
+
+	if (!*top)
+	{
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
+		free_stack(datax.top);
+		exit(EXIT_FAILURE);
+	}
+	if ((*top)->next == NULL)
+	{
+		free(*top);
+		*top = NULL;
+	}
+	else
+	{
+		*top = (*top)->next;
+		free((*top)->prev);
+		(*top)->prev = NULL;
+	}
 }

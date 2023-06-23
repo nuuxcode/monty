@@ -42,6 +42,7 @@ typedef struct instruction_s
  * @push_value: value to push
  * @line_num: line number of opcode
  * @opcode: the opcode
+ * @mfile: file to open
  * @top: the top of stack
  *
  */
@@ -63,6 +64,8 @@ int main(int argc, char **argv);
 void _push(stack_t **top, unsigned int line_number);
 void _pall(stack_t **top, unsigned int line_number);
 void _pint(stack_t **top, unsigned int line_number);
+void _pop(stack_t **top, unsigned int line_number);
+
 /*helpers.c*/
 FILE *openfile(char *filename);
 size_t num_len(int num);

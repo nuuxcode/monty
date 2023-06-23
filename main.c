@@ -10,6 +10,7 @@ void exec(void)
 		{"push", _push},
 		{"pall", _pall},
 		{"pint", _pint},
+		{"pop", _pop},
 		{NULL, NULL},
 	};
 	int j = 0;
