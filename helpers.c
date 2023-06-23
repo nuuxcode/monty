@@ -50,7 +50,8 @@ void verify_number(char *token)
 
 	if (atoi(token) < 0)
 		i++;
-	if ((isdigit(token[i]) && strlen(token) == num_len(atoi(token))) || (token[0] == '-' && isdigit(token[1])))
+	if ((isdigit(token[i]) && strlen(token) == num_len(atoi(token))) ||
+		(token[0] == '-' && isdigit(token[1])))
 		datax.push_value = atoi(token);
 	else
 	{
