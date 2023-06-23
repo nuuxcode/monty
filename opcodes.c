@@ -10,6 +10,7 @@ void _push(stack_t **top, unsigned int line_number)
 {
 	stack_t *new;
 
+	(void)line_number;
 	if (!top)
 		return;
 	new = malloc(sizeof(stack_t));
@@ -38,6 +39,7 @@ void _pall(stack_t **top, unsigned int line_number)
 	stack_t *current = *top;
 	int i;
 
+	(void)line_number;
 	for (i = 0; current; i++)
 	{
 		printf("%d\n", current->n);
