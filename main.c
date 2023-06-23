@@ -53,7 +53,6 @@ char *remove_spaces(char *str)
  */
 int main(int argc, char **argv)
 {
-	FILE *mfile;
 	char line[100], *token;
 	int i = 0;
 
@@ -63,8 +62,8 @@ int main(int argc, char **argv)
 		fflush(stderr);
 		exit(EXIT_FAILURE);
 	}
-	mfile = openfile(argv[1]);
-	while (fgets(line, sizeof(line), mfile) != NULL)
+	datax.mfile = openfile(argv[1]);
+	while (fgets(line, sizeof(line), datax.mfile) != NULL)
 	{
 		if (strlen(remove_spaces(line)) < 3)
 			continue;
@@ -86,11 +85,11 @@ int main(int argc, char **argv)
 		{
 			fprintf(stderr, "L%d: usage: push integer\n", datax.line_num);
 			fflush(stderr);
+			free_stack(datax.top);
 			exit(EXIT_FAILURE);
 		}
 		exec();
 	}
-	fclose(mfile);
 	free_stack(datax.top);
 	exit(EXIT_SUCCESS);
 }

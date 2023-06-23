@@ -50,6 +50,7 @@ typedef struct data
 	int push_value;
 	unsigned int line_num;
 	char *opcode;
+	FILE *mfile;
 	stack_t *top;
 } data;
 data datax;

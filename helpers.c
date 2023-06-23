@@ -78,4 +78,5 @@ void free_stack(stack_t *top)
 		nav = nav2;
 	}
 	datax.top = NULL;
+	fclose(datax.mfile);
 }

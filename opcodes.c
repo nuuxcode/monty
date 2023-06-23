@@ -17,6 +17,7 @@ void _push(stack_t **top, unsigned int line_number)
 	if (!new)
 	{
 		fprintf(stderr, "Error: malloc failed");
+		free_stack(datax.top);
 		exit(EXIT_FAILURE);
 	}
 	new->n = datax.push_value;
