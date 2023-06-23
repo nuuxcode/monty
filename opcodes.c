@@ -46,7 +46,8 @@ void _pall(stack_t **top, unsigned int line_number)
 	(void)line_number;
 	for (i = 0; current; i++)
 	{
-		printf("%d\n", current->n);
+		fprintf(stdout, "%d\n", current->n);
 		current = current->next;
 	}
+	fflush(stdout);
 }
