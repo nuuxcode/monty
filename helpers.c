@@ -57,6 +57,7 @@ void verify_number(char *token)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", datax.line_num);
 		fflush(stderr);
+		free_stack(datax.top);
 		exit(EXIT_FAILURE);
 	}
 }
