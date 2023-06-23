@@ -68,7 +68,10 @@ int main(int argc, char **argv)
 	while (fgets(line, sizeof(line), datax.mfile) != NULL)
 	{
 		if (strlen(remove_spaces(line)) < 3)
+		{
+			datax.line_num++;
 			continue;
+		}
 		datax.line_num++;
 		token = strtok(line, " \n");
 		i = 0;
