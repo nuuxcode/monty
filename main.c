@@ -44,6 +44,7 @@ int main(int argc, char **argv)
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
+		fflush(stderr);
 		exit(EXIT_FAILURE);
 	}
 	mfile = openfile(argv[1]);
@@ -65,13 +66,15 @@ int main(int argc, char **argv)
 			i++;
 			token = strtok(NULL, " \n");
 		}
-		if (strcmp(datax.opcode, "push") == 0 && i == 1)
+		if (strcmp(datax.opcode, "push") == 0 && i == 1) /*if its push and strtoik did 1 loop*/
 		{
 			fprintf(stderr, "L%d: usage: push integer\n", datax.line_num);
+			fflush(stderr);
 			exit(EXIT_FAILURE);
 		}
 		exec();
 	}
+	fflush(stderr);
 	fclose(mfile);
 	free_stack(datax.top);
 	datax.top = NULL;
