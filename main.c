@@ -61,7 +61,6 @@ int main(int argc, char **argv)
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
-		fflush(stderr);
 		exit(EXIT_FAILURE);
 	}
 	datax.mfile = openfile(argv[1]);
@@ -89,7 +88,6 @@ int main(int argc, char **argv)
 		if (strcmp(datax.opcode, "push") == 0 && i == 1)
 		{
 			fprintf(stderr, "L%d: usage: push integer\n", datax.line_num);
-			fflush(stderr);
 			free_stack(datax.top);
 			exit(EXIT_FAILURE);
 		}
