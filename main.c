@@ -28,6 +28,22 @@ void exec(void)
 		exit(EXIT_FAILURE);
 	}
 }
+/**
+ * remove_spaces - remove spaces
+ * @str: string
+ * Return: new string
+ */
+char *remove_spaces(char *str)
+{
+	while (*str)
+	{
+		if (*str == ' ')
+			str++;
+		else
+			break;
+	}
+	return (str);
+}
 
 /**
  * main -  count how many charachter in number
@@ -50,7 +66,7 @@ int main(int argc, char **argv)
 	mfile = openfile(argv[1]);
 	while (fgets(line, sizeof(line), mfile) != NULL)
 	{
-		if (strlen(line) < 3)
+		if (strlen(remove_spaces(line)) < 3)
 			continue;
 		datax.line_num++;
 		token = strtok(line, " \n");
@@ -66,7 +82,7 @@ int main(int argc, char **argv)
 			i++;
 			token = strtok(NULL, " \n");
 		}
-		if (strcmp(datax.opcode, "push") == 0 && i == 1) /*if its push and strtoik did 1 loop*/
+		if (strcmp(datax.opcode, "push") == 0 && i == 1)
 		{
 			fprintf(stderr, "L%d: usage: push integer\n", datax.line_num);
 			fflush(stderr);
@@ -74,9 +90,7 @@ int main(int argc, char **argv)
 		}
 		exec();
 	}
-	fflush(stderr);
 	fclose(mfile);
 	free_stack(datax.top);
-	datax.top = NULL;
 	exit(EXIT_SUCCESS);
 }

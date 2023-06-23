@@ -29,6 +29,8 @@ size_t num_len(int num)
 
 	if (!num)
 		return (1);
+	if (num < 0)
+		len++;
 	while (num != 0)
 	{
 		num /= 10;
@@ -45,7 +47,11 @@ size_t num_len(int num)
  */
 void verify_number(char *token)
 {
-	if (isdigit(token[0]) && strlen(token) == num_len(atoi(token)))
+	int i = 0;
+
+	if (atoi(token) < 0)
+		i++;
+	if (isdigit(token[i]) && strlen(token) == num_len(atoi(token)))
 		datax.push_value = atoi(token);
 	else
 	{
@@ -71,4 +77,5 @@ void free_stack(stack_t *top)
 		free(nav);
 		nav = nav2;
 	}
+	datax.top = NULL;
 }
