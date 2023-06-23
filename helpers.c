@@ -28,7 +28,7 @@ size_t num_len(int num)
 
 	if (!num)
 		return (1);
-	if (num < 0)
+	if (num <= 0)
 		len++;
 	while (num != 0)
 	{
@@ -50,7 +50,7 @@ void verify_number(char *token)
 
 	if (atoi(token) < 0)
 		i++;
-	if (isdigit(token[i]) && strlen(token) == num_len(atoi(token)))
+	if ((isdigit(token[i]) && strlen(token) == num_len(atoi(token))) || (token[0] == '-' && isdigit(token[1])))
 		datax.push_value = atoi(token);
 	else
 	{
