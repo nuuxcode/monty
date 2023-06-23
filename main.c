@@ -25,7 +25,6 @@ void exec(void)
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n",
 				datax.line_num, datax.opcode);
-		fflush(stderr);
 		free_stack(datax.top);
 		exit(EXIT_FAILURE);
 	}

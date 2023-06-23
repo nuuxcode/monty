@@ -49,5 +49,4 @@ void _pall(stack_t **top, unsigned int line_number)
 		printf("%d\n", current->n);
 		current = current->next;
 	}
-	fflush(stdout);
 }

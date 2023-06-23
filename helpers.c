@@ -12,7 +12,6 @@ FILE *openfile(char *filename)
 	if (!mfile)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", filename);
-		fflush(stderr);
 		exit(EXIT_FAILURE);
 	}
 	return (mfile);
@@ -56,7 +55,6 @@ void verify_number(char *token)
 	else
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", datax.line_num);
-		fflush(stderr);
 		free_stack(datax.top);
 		exit(EXIT_FAILURE);
 	}

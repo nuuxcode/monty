@@ -1,4 +1,3 @@
+push 1
 pall
-pall
-pall
-xxxxxxxx dqzdqzdq
+push a
