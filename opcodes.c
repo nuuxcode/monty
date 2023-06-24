@@ -230,5 +230,5 @@ void _mul(stack_t **top, unsigned int line_number)
 	}
 	value = (*top)->n;
 	_pop(&datax.top, datax.line_num);
-	(*top)->n -= value;
+	(*top)->n *= value;
 }
