@@ -148,3 +148,13 @@ void _add(stack_t **top, unsigned int line_number)
 	_pop(&datax.top, datax.line_num);
 	(*top)->n += value;
 }
+
+/**
+ * _nop - doesn’t do anything.
+ * @top: head of double list
+ * @line_number: line number of opcode
+ * Return: none
+ */
+void _nop(stack_t **top, unsigned int line_number)
+{
+}
