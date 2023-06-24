@@ -1,7 +1,6 @@
 push 1
 push 2
 push 3
-nop
-pall
-add
+push 10
+sub
 pall

@@ -14,6 +14,7 @@ void exec(void)
 		{"swap", _swap},
 		{"add", _add},
 		{"nop", _nop},
+		{"sub", _sub},
 		{NULL, NULL},
 	};
 	int j = 0;
