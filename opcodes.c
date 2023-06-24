@@ -99,7 +99,7 @@ void _pop(stack_t **top, unsigned int line_number)
 }
 
 /**
- * _pop - removes the top element of the stack
+ * _swap - swaps the top two elements of the stack.
  * @top: head of double list
  * @line_number: line number of opcode
  * Return: none
@@ -107,6 +107,7 @@ void _pop(stack_t **top, unsigned int line_number)
 void _swap(stack_t **top, unsigned int line_number)
 {
 	stack_t *tmp1;
+
 	if (!*top || (*top)->next == NULL)
 	{
 		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
