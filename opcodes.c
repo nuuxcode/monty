@@ -283,3 +283,27 @@ void _pchar(stack_t **top, unsigned int line_number)
 	}
 	printf("%c\n", (*top)->n);
 }
+
+/**
+ * _pstr - prints the string starting at the top of the stack.
+ * @top: head of double list
+ * @line_number: line number of opcode
+ * Return: none
+ */
+void _pstr(stack_t **top, unsigned int line_number)
+{
+	stack_t *current = *top;
+	int i;
+	(void)line_number;
+
+	if (!*top)
+		fprintf(stdout, "\n");
+	for (i = 0; current && current->n != 0 &&
+				!(current->n > 127 || current->n < 0);
+		 i++)
+	{
+		fprintf(stdout, "%c", current->n);
+		current = current->next;
+	}
+	fprintf(stdout, "\n");
+}

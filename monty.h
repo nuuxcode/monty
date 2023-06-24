@@ -73,6 +73,7 @@ void _div(stack_t **top, unsigned int line_number);
 void _mul(stack_t **top, unsigned int line_number);
 void _mod(stack_t **top, unsigned int line_number);
 void _pchar(stack_t **top, unsigned int line_number);
+void _pstr(stack_t **top, unsigned int line_number);
 
 /*helpers.c*/
 FILE *openfile(char *filename);
