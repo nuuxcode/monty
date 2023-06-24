@@ -16,6 +16,7 @@ void exec(void)
 		{"nop", _nop},
 		{"sub", _sub},
 		{"div", _div},
+		{"mul", _mul},
 		{NULL, NULL},
 	};
 	int j = 0;
