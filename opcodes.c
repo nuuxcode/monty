@@ -317,6 +317,8 @@ void _rotl(stack_t **top, unsigned int line_number)
 	stack_t *last = *top;
 	int i;
 
+	if (!*top)
+		return;
 	(void)line_number;
 	for (i = 0; last; i++)
 	{
