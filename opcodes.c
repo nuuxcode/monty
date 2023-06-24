@@ -212,8 +212,8 @@ void _div(stack_t **top, unsigned int line_number)
 }
 
 /**
- * _sub - subtracts the top element of the stack
- *  from the second top element of the stack.
+ * _mul - multiplies the second top element
+ * of the stack with the top element of the stack.
  * @top: head of double list
  * @line_number: line number of opcode
  * Return: none
