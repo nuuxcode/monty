@@ -157,4 +157,6 @@ void _add(stack_t **top, unsigned int line_number)
  */
 void _nop(stack_t **top, unsigned int line_number)
 {
+	(void)top;
+	(void)line_number;
 }
