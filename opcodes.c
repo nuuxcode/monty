@@ -295,7 +295,7 @@ void _pstr(stack_t **top, unsigned int line_number)
 	stack_t *current = *top;
 	int i;
 	(void)line_number;
-	
+
 	for (i = 0; current && current->n != 0 &&
 				!(current->n > 127 || current->n < 0);
 		 i++)
