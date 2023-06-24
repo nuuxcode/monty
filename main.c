@@ -21,6 +21,7 @@ void exec(void)
 		{"pchar", _pchar},
 		{"pstr", _pstr},
 		{"rotl", _rotl},
+		{"rotr", _rotr},
 		{"queue", _mode},
 		{"stack", _mode},
 		{NULL, NULL},
