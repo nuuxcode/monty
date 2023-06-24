@@ -260,3 +260,26 @@ void _mod(stack_t **top, unsigned int line_number)
 	_pop(&datax.top, datax.line_num);
 	(*top)->n %= value;
 }
+
+/**
+ * _pchar - prints the char at the top of the stack (ascii).
+ * @top: head of double list
+ * @line_number: line number of opcode
+ * Return: none
+ */
+void _pchar(stack_t **top, unsigned int line_number)
+{
+	if (!*top)
+	{
+		fprintf(stderr, "L%d: can't pchar, stack empty\n", line_number);
+		free_stack(datax.top);
+		exit(EXIT_FAILURE);
+	}
+	if ((*top)->n > 255 || (*top)->n < 0)
+	{
+		fprintf(stderr, "L%d: can't pchar, value out of range\n", line_number);
+		free_stack(datax.top);
+		exit(EXIT_FAILURE);
+	}
+	fprintf(stdout, "%c\n", (*top)->n);
+}
