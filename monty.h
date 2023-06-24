@@ -65,6 +65,7 @@ void _push(stack_t **top, unsigned int line_number);
 void _pall(stack_t **top, unsigned int line_number);
 void _pint(stack_t **top, unsigned int line_number);
 void _pop(stack_t **top, unsigned int line_number);
+void _swap(stack_t **top, unsigned int line_number);
 
 /*helpers.c*/
 FILE *openfile(char *filename);

@@ -11,6 +11,7 @@ void exec(void)
 		{"pall", _pall},
 		{"pint", _pint},
 		{"pop", _pop},
+		{"swap", _swap},
 		{NULL, NULL},
 	};
 	int j = 0;
