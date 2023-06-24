@@ -1,5 +1,7 @@
 push 1
-push 0
+#pall
 push 2
-div
-pall
+     #pall
+push 3
+     #   pall    
+    pall

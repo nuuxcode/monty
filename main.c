@@ -74,7 +74,7 @@ int main(int argc, char **argv)
 	datax.mfile = openfile(argv[1]);
 	while (fgets(line, sizeof(line), datax.mfile) != NULL)
 	{
-		if (strlen(remove_spaces(line)) < 3)
+		if (strlen(remove_spaces(line)) < 3 || remove_spaces(line)[0] == '#')
 		{
 			datax.line_num++;
 			continue;
