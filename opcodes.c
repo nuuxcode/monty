@@ -344,7 +344,7 @@ void _rotr(stack_t **top, unsigned int line_number)
 	stack_t *last = *top;
 	int i;
 
-	if (!*top)
+	if (!*top || (*top)->next == NULL)
 		return;
 	(void)line_number;
 	for (i = 0; last; i++)
