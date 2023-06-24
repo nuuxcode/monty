@@ -1,4 +1,20 @@
 #include "monty.h"
+/**
+ * _mode -  aswitch the mode queue/stack
+ * @top: head of double list
+ * @line_number: line number of opcode
+ * Return: none
+ */
+void _mode(stack_t **top, unsigned int line_number)
+{
+	(void)top;
+	(void)line_number;
+
+	if (strcmp(datax.opcode, "queue") == 0)
+		datax.mode = 1;
+	else if (strcmp(datax.opcode, "stack") == 0)
+		datax.mode = 0;
+}
 
 /**
  * _push -  adds a new node at the beginning
@@ -8,7 +24,8 @@
  */
 void _push(stack_t **top, unsigned int line_number)
 {
-	stack_t *new;
+	stack_t *new, *last;
+	int i = 0;
 
 	(void)line_number;
 	if (!top)
@@ -21,15 +38,31 @@ void _push(stack_t **top, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	new->n = datax.push_value;
-	if (*top)
+	if (datax.mode == 0 || !*top)
 	{
-		new->next = *top;
-		(*top)->prev = new;
+		if (*top)
+		{
+			new->next = *top;
+			(*top)->prev = new;
+		}
+		else
+			new->next = NULL;
+		new->prev = NULL;
+		*top = new;
 	}
-	else
+	else if (datax.mode == 1)
+	{
+		last = *top;
+		for (i = 0; last; i++)
+		{
+			if (!last->next)
+				break;
+			last = last->next;
+		}
+		last->next = new;
+		new->prev = last;
 		new->next = NULL;
-	new->prev = NULL;
-	*top = new;
+	}
 }
 
 /**

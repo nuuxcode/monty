@@ -21,7 +21,8 @@ void exec(void)
 		{"pchar", _pchar},
 		{"pstr", _pstr},
 		{"rotl", _rotl},
-		{"rotr", _rotr},
+		{"queue", _mode},
+		{"stack", _mode},
 		{NULL, NULL},
 	};
 	int j = 0;
@@ -70,6 +71,7 @@ int main(int argc, char **argv)
 	char line[100], *token;
 	int i = 0;
 
+	datax.mode = 0;
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
@@ -85,8 +87,7 @@ int main(int argc, char **argv)
 		}
 		datax.line_num++;
 		token = strtok(line, " \n");
-		i = 0;
-		while (token != NULL && i < 2)
+		for (i = 0; token != NULL && i < 2; i++)
 		{
 			if (i == 0) /*first part command first loop*/
 				datax.opcode = token;
@@ -94,7 +95,6 @@ int main(int argc, char **argv)
 				break;
 			if (i == 1)
 				verify_number(token);
-			i++;
 			token = strtok(NULL, " \n");
 		}
 		if (strcmp(datax.opcode, "push") == 0 && i == 1)

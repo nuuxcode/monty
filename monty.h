@@ -44,7 +44,9 @@ typedef struct instruction_s
  * @opcode: the opcode
  * @mfile: file to open
  * @top: the top of stack
- *
+ * @mode: 0 mean stack, 1 mean queue
+ * in stack you push in the start
+ * in the queue you push at end
  */
 typedef struct data
 {
@@ -53,6 +55,7 @@ typedef struct data
 	char *opcode;
 	FILE *mfile;
 	stack_t *top;
+	int mode;
 } data;
 data datax;
 
@@ -76,6 +79,7 @@ void _pchar(stack_t **top, unsigned int line_number);
 void _pstr(stack_t **top, unsigned int line_number);
 void _rotl(stack_t **top, unsigned int line_number);
 void _rotr(stack_t **top, unsigned int line_number);
+void _mode(stack_t **top, unsigned int line_number);
 
 /*helpers.c*/
 FILE *openfile(char *filename);
