@@ -20,6 +20,7 @@ void exec(void)
 		{"mod", _mod},
 		{"pchar", _pchar},
 		{"pstr", _pstr},
+		{"rotl", _rotl},
 		{NULL, NULL},
 	};
 	int j = 0;
