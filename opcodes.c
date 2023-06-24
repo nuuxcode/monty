@@ -314,56 +314,19 @@ void _pstr(stack_t **top, unsigned int line_number)
  */
 void _rotl(stack_t **top, unsigned int line_number)
 {
-	stack_t *cursor = *top, *last;
+	stack_t *last = *top;
 	int i;
+
 	(void)line_number;
-	/*should ignore 1 element in list*/
-	for (i = 0; cursor; i++)
+	for (i = 0; last; i++)
 	{
-		if (!cursor->next)
+		if (!last->next)
 			break;
-		cursor = cursor->next;
+		last = last->next;
 	}
-	printf("last element: %d\n", cursor->n);
-	last = cursor;
-	*top = last;
-	for (i = 0; cursor; i++)
-	{
-		/*if there only 2 element in list
-		the next gonna be oiuntung on null
-		so when we flip them, the second element
-		prev should be NULL*/
-		if (cursor->next == NULL)
-			cursor->prev = NULL;
-		else
-			cursor->prev = cursor->next;
-			
-		cursor->next = cursor->prev;
-
-		/*if its last element PREV == NULL*/
-		if (cursor->next->prev == NULL)
-			cursor->next->next = NULL;
-		else
-			cursor->next->next = cursor->next->prev;
-
-		cursor->next->prev = cursor;
-
-		cursor = cursor->next;
-	}
+	last->next = *top;
+	(*top)->prev = last;
+	(*top) = (*top)->next;
+	(*top)->prev->next = NULL;
+	(*top)->prev = NULL;
 }
-/*
-top point to the last element
-	get last elemnt
-		cursor = last
-	top = last
-
-	loop as long cursor not null:
-		cursor->next = cursor->prev
-		cursor->prev = NULL
-
-		cursor->next->next = cursor->next->prev
-		cursor->next->prev = cursor
-
-		cursor=cursor->next
-
-*/
