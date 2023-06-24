@@ -110,7 +110,7 @@ void _swap(stack_t **top, unsigned int line_number)
 
 	if (!*top || (*top)->next == NULL)
 	{
-		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
+		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
 		free_stack(datax.top);
 		exit(EXIT_FAILURE);
 	}
