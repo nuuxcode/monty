@@ -127,3 +127,24 @@ void _swap(stack_t **top, unsigned int line_number)
 	(*top)->prev = NULL;
 	(*top)->next = tmp1;
 }
+
+/**
+ * _add - adds the top two elements of the stack.
+ * @top: head of double list
+ * @line_number: line number of opcode
+ * Return: none
+ */
+void _add(stack_t **top, unsigned int line_number)
+{
+	int value = 0;
+
+	if (!*top || (*top)->next == NULL)
+	{
+		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
+		free_stack(datax.top);
+		exit(EXIT_FAILURE);
+	}
+	value = (*top)->n;
+	_pop(&datax.top, datax.line_num);
+	(*top)->n += value;
+}
